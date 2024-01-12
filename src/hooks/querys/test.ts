@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useFetchTest = () => {
   return useQuery({
-    queryKey: ["getTest,test"],
+    queryKey: ["getTest"],
     queryFn: _getTest,
   });
 };
