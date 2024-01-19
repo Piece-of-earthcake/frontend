@@ -1,10 +1,10 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export enum HttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  DELETE = "DELETE",
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
 }
 
 async function httpClient<T>(
@@ -13,7 +13,7 @@ async function httpClient<T>(
   data?: Object
 ): Promise<T> {
   const headers = {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   };
 
   const config = {
@@ -28,13 +28,13 @@ async function httpClient<T>(
     // TODO:에러메시지 부분 확인 필요
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "API 요청이 실패했습니다.");
+      throw new Error(errorData.message || 'API 요청이 실패했습니다.');
     }
 
     const responseData = await response.json();
     return responseData;
-  } catch (error: any) {
-    console.error("API 요청 에러:", error.message);
+  } catch (error) {
+    console.error('API 요청 에러:', error?.message);
     throw error;
   }
 }
