@@ -10,14 +10,21 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="flex flex-col gap-10">
-        <Notification />
-        <EarthquakeMap />
-        <div className="grid grid-cols-2 gap-4">
+        <div id="recentEarthquakesSection" className="grid grid-cols-1 gap-10">
+          <Notification />
+          <EarthquakeMap />
+        </div>
+
+        <div id="newsSection" className="grid grid-cols-2 gap-4">
           <EarthquakeNews />
           <EarthquakeRegionRanking />
         </div>
+
         <ShelterFinder />
-        <EarthquakeTrendChart />
+
+        <div id="statisticsSection">
+          <EarthquakeTrendChart />
+        </div>
       </div>
     </>
   );
