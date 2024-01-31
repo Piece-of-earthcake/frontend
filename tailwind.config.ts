@@ -19,6 +19,17 @@ const config: Config = {
         'gray-200': '#383A3F',
         'gray-300': '#1F2124'
       },
+      height: {
+        22: '88px'
+      },
+      inset: {
+        22: '88px'
+      },
+      rotate: {
+        'm-80': '-80deg',
+        'm-45': '-45deg',
+        '80': '80deg'
+      },
       borderRadius: {
         md: '15px',
         lg: '30px'
@@ -58,6 +69,33 @@ const config: Config = {
           'Apple Color Emoji',
           'Segoe UI Emoji'
         ]
+      },
+      animation: {
+        slideInRight: '500ms ease slideInRight',
+        slideOutRight: '500ms ease slideOutRight'
+      },
+
+      keyframes: {
+        slideInRight: {
+          from: {
+            transform: 'translateX(100%)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          }
+        },
+        slideOutRight: {
+          from: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          },
+          to: {
+            transform: 'translateX(100%)',
+            opacity: '0'
+          }
+        }
       }
     }
   },
