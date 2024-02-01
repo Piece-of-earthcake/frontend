@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import * as echarts from 'echarts'
 
 const Chart = () => {
   const chartRef = useRef(null)
-  const [options, setOptions] = useState({
+  const options = {
     color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
     tooltip: {
       trigger: 'axis',
@@ -150,7 +150,7 @@ const Chart = () => {
         data: [220, 402, 231, 134, 190, 230, 120]
       }
     ]
-  })
+  }
   useEffect(() => {
     if (chartRef.current) {
       const chart = echarts.init(chartRef.current)
