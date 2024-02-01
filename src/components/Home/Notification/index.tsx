@@ -16,8 +16,9 @@ const Notification = () => {
   const [test, setTest] = useState(false);
   const [animationClass, setAnimationClass] = useState('');
 
+  // TODO : sse 실시간알림 실제 서버 연결작업 예정
+
   // useEffect(() => {
-  //   // SSE 연결
   //   const EventSource = EventSourcePolyfill || NativeEventSource;
   //   const eventSource = new EventSource('/api/sse-api', {
   //     headers: {
@@ -48,8 +49,8 @@ const Notification = () => {
       {test && (
         <div className={clsx('flex w-full gap-8', animationClass)}>
           <div className="relative w-[calc(100vw-144px)]">
-            <div className="bg-white pt-6 pb-7 rounded-md text-gray-950 flex items-center">
-              <h1 className="text-title-bold px-16 ">실시간 알림</h1>
+            <div className="flex items-center rounded-md bg-white pb-7 pt-6 text-gray-950">
+              <h1 className="px-16 text-title-bold">실시간 알림</h1>
               <div className="flex gap-9">
                 <div className="flex gap-1">
                   <div className="text-body3-bold">지역 : </div>
@@ -67,13 +68,13 @@ const Notification = () => {
                 </div>
               </div>
             </div>
-            <div className=" rounded-b-md bg-yellow-400 absolute bottom-0 w-full h-2"></div>
+            <div className="absolute bottom-0 h-2 w-full rounded-b-md bg-yellow-400"></div>
           </div>
           <Scales data={notificationData.scale} />
         </div>
       )}
       <button
-        className="text-black bg-yellow-300 absolute py-1 px-6 rounded-sm"
+        className="absolute rounded-sm bg-yellow-300 px-6 py-1 text-black"
         onClick={() => {
           if (test) {
             setAnimationClass('animate-slideOutRight');

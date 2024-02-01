@@ -1,4 +1,5 @@
 'use client';
+
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -36,11 +37,11 @@ const Scales = ({ data }: { data: number }) => {
 
   return (
     <>
-      <div className="relative min-w-48 h-20 mr-2 animation-bottom-up">
+      <div className="animation-bottom-up relative mr-2 h-20 min-w-48">
         <Image
           alt="scales"
           className={clsx(
-            'object-cover object-center z-10 absolute bottom-1 left-22 transform w-4 h-16 transition-transform duration-500 origin-bottom',
+            'absolute bottom-1 left-22 z-10 h-16 w-4 origin-bottom transform object-cover object-center transition-transform duration-500',
             rotationClass
           )}
           priority
