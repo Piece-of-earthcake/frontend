@@ -159,10 +159,10 @@ const Chart = () => {
     }
   }, [options, chartRef])
   return (
-    <>
+      <>
         <div className='h-11'/>
         <div className='w-full h-2/3' ref={chartRef}/>
-    </>
+      </>
 
   )
 }
