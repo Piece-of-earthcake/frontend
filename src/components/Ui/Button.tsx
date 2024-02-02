@@ -6,7 +6,7 @@ interface ButtonProps {
 const Button = ({ content, handleOnClick }: ButtonProps) => {
   return (
     <button
-      className="rounded-md bg-yellow-200 text-white p-2"
+      className='rounded-md bg-yellow-200 text-white p-2'
       onClick={handleOnClick}
     >
       {content}

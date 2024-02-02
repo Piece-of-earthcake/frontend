@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+
 import { MenuId } from './type';
 
 const SideBar = () => {
@@ -65,8 +66,8 @@ const SideBar = () => {
   return (
     <React.Fragment>
       <aside>
-        <div className="fixed z-49 top-14 inset-0 w-60 min-h-screen p-4 bg-white">
-          <ul className="grid gap-y-6 text-gray-300 text-body3 mb-10 cursor-pointer">
+        <div className='fixed z-49 top-14 inset-0 w-60 min-h-screen p-4 bg-white'>
+          <ul className='grid gap-y-6 text-gray-300 text-body3 mb-10 cursor-pointer'>
             {menuItems.map((menuItem, index) => (
               <li
                 key={menuItem.id}
@@ -82,10 +83,10 @@ const SideBar = () => {
             ))}
           </ul>
 
-          <div className="flex flex-col items-center justify-center rounded-md border-2 border-yellow-400 p-2 text-black">
-            <p className="text-body2">2024 국내 지진 발생 횟수</p>
-            <p className="text-title">333</p>
-            <p className="text-body1-thin">+ 12(전년대비)</p>
+          <div className='flex flex-col items-center justify-center rounded-md border-2 border-yellow-400 p-2 text-black'>
+            <p className='text-body2'>2024 국내 지진 발생 횟수</p>
+            <p className='text-title'>333</p>
+            <p className='text-body1-thin'>+ 12(전년대비)</p>
           </div>
         </div>
       </aside>
