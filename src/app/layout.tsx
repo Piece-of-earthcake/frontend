@@ -1,6 +1,8 @@
+import './globals.css';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+
 import Header from '@/components/Layouts/Header';
 import SideBar from '@/components/Layouts/SideBar';
 import ReactQueryProviders from '@/utils/react-query-provider';
@@ -18,14 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className}>
         <ReactQueryProviders>
           <Header />
           <SideBar />
-          <main className="w-full pl-64 pr-4 py-20 bg-gray-100">
-            {children}
-          </main>
+          <main className='w-full pl-64 pr-4 py-20'>{children}</main>
         </ReactQueryProviders>
       </body>
     </html>

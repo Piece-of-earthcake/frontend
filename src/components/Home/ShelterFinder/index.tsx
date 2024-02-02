@@ -1,7 +1,7 @@
 const ShelterFinder = () => {
   return (
     <>
-      <div className="bg-gray-500 p-8 rounded">
+      <div className='bg-gray-500 p-8 rounded'>
         <h1>ShelterFinder</h1>
       </div>
     </>

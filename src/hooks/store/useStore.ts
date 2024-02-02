@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface IUseStoreState {
   bears: number;
@@ -7,8 +7,8 @@ interface IUseStoreState {
 }
 
 //example
-export const useStore = create<IUseStoreState>((set) => ({
+export const useStore = create<IUseStoreState>(set => ({
   bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
+  increasePopulation: () => set(state => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 })
 }));
