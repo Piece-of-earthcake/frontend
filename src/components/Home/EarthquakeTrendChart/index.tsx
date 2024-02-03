@@ -16,7 +16,6 @@ const EarthquakeTrendChart = () => {
     { value: '10', label: '10년' }
   ];
   return (
-    <>
       <div className="bg-white p-4 h-[1000px] rounded text-black">
         <div className="flex justify-between text-title">
           <p>한국 지진 발생 추이</p>
@@ -54,7 +53,6 @@ const EarthquakeTrendChart = () => {
 
         <Chart/>
       </div>
-    </>
   );
 };
 
