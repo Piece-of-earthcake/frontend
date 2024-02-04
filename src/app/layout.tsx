@@ -25,7 +25,7 @@ export default function RootLayout({
         <ReactQueryProviders>
           <Header />
           <SideBar />
-          <main className='w-full pl-64 pr-4 py-20 bg-gray-100'>
+          <main className='w-full bg-gray-100 py-20 pl-64 pr-4'>
             {children}
           </main>
         </ReactQueryProviders>

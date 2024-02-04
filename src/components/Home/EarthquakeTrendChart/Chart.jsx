@@ -1,10 +1,20 @@
-import React, { useRef, useEffect } from 'react'
-import * as echarts from 'echarts'
+import * as echarts from 'echarts';
+import React, { useEffect, useRef } from 'react';
+
+import { CHART_COLORS } from '@/app/constants/chart';
+
+import { SCALE_CHART_OPTIONS } from './constants';
 
 const Chart = () => {
-  const chartRef = useRef(null)
-  const options = {
-    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+  const chartRef = useRef(null);
+
+  const SCALE_CHART_OPTIONS = {
+    color: [
+      CHART_COLORS.chart1,
+      CHART_COLORS.chart2,
+      CHART_COLORS.chart3,
+      CHART_COLORS.chart4
+    ],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -150,21 +160,20 @@ const Chart = () => {
         data: [220, 402, 231, 134, 190, 230, 120]
       }
     ]
-  }
+  };
   useEffect(() => {
     if (chartRef.current) {
-      const chart = echarts.init(chartRef.current)
+      const chart = echarts.init(chartRef.current);
 
-      chart.setOption(options)
+      chart.setOption(SCALE_CHART_OPTIONS);
     }
-  }, [options, chartRef])
+  }, [SCALE_CHART_OPTIONS, chartRef]);
   return (
-      <>
-        <div className='h-11'/>
-        <div className='w-full h-2/3' ref={chartRef}/>
-      </>
+    <>
+      <div className='h-11' />
+      <div className='h-2/3 w-full' ref={chartRef} />
+    </>
+  );
+};
 
-  )
-}
-
-export default Chart
+export default Chart;

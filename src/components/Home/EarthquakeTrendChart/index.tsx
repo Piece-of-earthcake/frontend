@@ -5,22 +5,20 @@ import Image from 'next/image';
 
 import Chart from './Chart'
 import Select from '@/components/Ui/Select';
+import SectionBoard from '@/components/Ui/SectionBoard';
 
+import { SELECT_FILTER } from './constants/index';
 
 const EarthquakeTrendChart = () => {
-  const [selected, setSelected] = useState('1년');
-  const SelectFilter = [
-    { value: '1', label: '1년' },
-    { value: '3', label: '3년' },
-    { value: '5', label: '5년' },
-    { value: '10', label: '10년' }
-  ];
+  const [selected, setSelected] = useState(SELECT_FILTER[0].label);
+
   return (
-      <div className="bg-white p-4 h-[1000px] rounded text-black">
+    <SectionBoard>
+        <div className="h-[1000px] text-black">
         <div className="flex justify-between text-title">
           <p>한국 지진 발생 추이</p>
           <Select
-            options={SelectFilter}
+            options={SELECT_FILTER}
             setSelected={setSelected}
             selected={selected}
           />
@@ -53,6 +51,8 @@ const EarthquakeTrendChart = () => {
 
         <Chart/>
       </div>
+    </SectionBoard>
+     
   );
 };
 

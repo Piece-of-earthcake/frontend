@@ -7,7 +7,7 @@ interface SectionBoardProps {
 
 const SectionBoard = ({ children, title }: SectionBoardProps) => {
   return (
-    <div className='p-4 rounded-sm bg-white'>
+    <div className='rounded-sm bg-white p-4'>
       {title && <div>{title}</div>}
       {children}
     </div>
