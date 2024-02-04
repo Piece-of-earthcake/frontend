@@ -1,9 +1,9 @@
 'use client';
 
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
-// import ArrowUp from '../../../public/icons/icon_arrow_up.svg'
-// import ArrowDown from '../../../public/icons/icon_arrow_down.svg'
+import ArrowDown from '../../../public/icons/icon_arrow_down.svg';
+import ArrowUp from '../../../public/icons/icon_arrow_up.svg';
 
 interface CategoryType {
   label: string;
@@ -57,44 +57,6 @@ const Select = ({ label, options, selected, setSelected }: Props) => {
         )}
       </div>
     </div>
-  );
-};
-
-const ArrowUp = () => {
-  return (
-    <svg
-      width='12'
-      height='8'
-      viewBox='0 0 12 8'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M1.75736 5.99552L6 1.81936L10.2426 5.99552'
-        stroke='#5F6268'
-        strokeWidth='1.5'
-        strokeLinecap='square'
-      />
-    </svg>
-  );
-};
-
-const ArrowDown = () => {
-  return (
-    <svg
-      width='12'
-      height='8'
-      viewBox='0 0 12 8'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M1.75736 1.99557L6 6.17173L10.2426 1.99557'
-        stroke='#5F6268'
-        strokeWidth='1.5'
-        strokeLinecap='square'
-      />
-    </svg>
   );
 };
 

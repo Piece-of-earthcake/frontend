@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 
-import Chart from './Chart'
-import Select from '@/components/Ui/Select';
 import SectionBoard from '@/components/Ui/SectionBoard';
+import Select from '@/components/Ui/Select';
 
+import Chart from './Chart';
 import { SELECT_FILTER } from './constants/index';
 
 const EarthquakeTrendChart = () => {
@@ -14,8 +14,8 @@ const EarthquakeTrendChart = () => {
 
   return (
     <SectionBoard>
-        <div className="h-[1000px] text-black">
-        <div className="flex justify-between text-title">
+      <div className='h-[1000px] text-black'>
+        <div className='flex justify-between text-title'>
           <p>한국 지진 발생 추이</p>
           <Select
             options={SELECT_FILTER}
@@ -24,35 +24,52 @@ const EarthquakeTrendChart = () => {
           />
         </div>
 
-        <div className="h-[45px]" />
-
-        <div className="flex justify-around">
-          <div className="shadow-lg py-6 px-16 flex flex-col border border-[#D8D8D8] rounded-md justify-center items-center">
-            <Image src={'/icons/icon_earthquake_graph.png'} alt="icon_graph" width="28" height="28" />
-            <p className="text-caption1">72회</p>
-            <p className="text-body3">규모 3.0 이상</p>
+        <div className='mt-11 flex justify-around'>
+          <div className='flex flex-col items-center justify-center rounded-md border border-[#D8D8D8] px-16 py-6 shadow-lg'>
+            <Image
+              src={'/icons/icon_earthquake_graph.png'}
+              alt='icon_graph'
+              width='28'
+              height='28'
+            />
+            <p className='text-caption1'>72회</p>
+            <p className='text-body3'>규모 3.0 이상</p>
           </div>
-          <div className="shadow-lg py-6 px-16 flex flex-col border border-[#D8D8D8] rounded-md justify-center items-center">
-            <Image src={'/icons/icon_earthquake_graph.png'} alt="icon_graph" width="28" height="28" />
-            <p className="text-caption1">60회</p>
-            <p className="text-body3">규모 3.0 ~ 4.0</p>
+          <div className='flex flex-col items-center justify-center rounded-md border border-[#D8D8D8] px-16 py-6 shadow-lg'>
+            <Image
+              src={'/icons/icon_earthquake_graph.png'}
+              alt='icon_graph'
+              width='28'
+              height='28'
+            />
+            <p className='text-caption1'>60회</p>
+            <p className='text-body3'>규모 3.0 ~ 4.0</p>
           </div>
-          <div className="shadow-lg py-6 px-16 flex flex-col border border-[#D8D8D8] rounded-md justify-center items-center">
-            <Image src={'/icons/icon_earthquake_graph.png'} alt="icon_graph" width="28" height="28" />
-            <p className="text-caption1">48회</p>
-            <p className="text-body3">규모 4.0 ~ 5.0</p>
+          <div className='flex flex-col items-center justify-center rounded-md border border-[#D8D8D8] px-16 py-6 shadow-lg'>
+            <Image
+              src={'/icons/icon_earthquake_graph.png'}
+              alt='icon_graph'
+              width='28'
+              height='28'
+            />
+            <p className='text-caption1'>48회</p>
+            <p className='text-body3'>규모 4.0 ~ 5.0</p>
           </div>
-          <div className="shadow-lg py-6 px-16 flex flex-col border border-[#D8D8D8] rounded-md justify-center items-center">
-            <Image src={'/icons/icon_earthquake_graph.png'} alt="icon_graph" width="28" height="28" />
-            <p className="text-caption1">20회</p>
-            <p className="text-body3">규모 5.0 이상</p>
+          <div className='flex flex-col items-center justify-center rounded-md border border-[#D8D8D8] px-16 py-6 shadow-lg'>
+            <Image
+              src={'/icons/icon_earthquake_graph.png'}
+              alt='icon_graph'
+              width='28'
+              height='28'
+            />
+            <p className='text-caption1'>20회</p>
+            <p className='text-body3'>규모 5.0 이상</p>
           </div>
         </div>
 
-        <Chart/>
+        <Chart />
       </div>
     </SectionBoard>
-     
   );
 };
 
