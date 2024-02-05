@@ -8,6 +8,9 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack']
     });
+
+    config.resolve.alias['@public'] = __dirname + '/public';
+
     return config;
   }
 };

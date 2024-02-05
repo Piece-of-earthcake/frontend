@@ -37,6 +37,7 @@ const config: Config = {
       fontSize: {
         'body1-thin': ['12px', { fontWeight: '400' }],
         body2: ['14px', { fontWeight: '500' }],
+        'body2-bold': ['14px', { fontWeight: '600' }],
 
         'body3-thin': ['16px', { fontWeight: '400' }],
         body3: ['16px', { fontWeight: '500' }],
@@ -72,7 +73,11 @@ const config: Config = {
       },
       animation: {
         slideInRight: '500ms ease slideInRight',
-        slideOutRight: '500ms ease slideOutRight'
+        slideOutRight: '500ms ease slideOutRight',
+        mapSideBarOpen: '300ms ease-in-out mapSideBarOpen',
+        mapSideBarClose: '300ms ease-in-out mapSideBarClose',
+        mapOpen: '300ms ease-in-out mapOpen',
+        mapClose: '300ms ease-in-out mapClose'
       },
 
       keyframes: {
@@ -94,6 +99,42 @@ const config: Config = {
           to: {
             transform: 'translateX(100%)',
             opacity: '0'
+          }
+        },
+        mapSideBarOpen: {
+          from: {
+            width: '0',
+            opacity: '0'
+          },
+          to: {
+            opacity: '1',
+            width: '100%/3'
+          }
+        },
+        mapSideBarClose: {
+          from: {
+            width: '100%/3',
+            opacity: '1'
+          },
+          to: {
+            opacity: '0',
+            width: '0%'
+          }
+        },
+        mapOpen: {
+          from: {
+            width: '77%'
+          },
+          to: {
+            width: '100%'
+          }
+        },
+        mapClose: {
+          from: {
+            width: '100%'
+          },
+          to: {
+            width: '77%'
           }
         }
       }

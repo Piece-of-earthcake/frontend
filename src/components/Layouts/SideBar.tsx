@@ -24,10 +24,12 @@ const SideBar = () => {
 
     setSelectedMenu(menuIndex);
 
-    window.scrollTo({
-      top: section,
-      behavior: 'smooth'
-    });
+    if (section) {
+      window.scrollTo({
+        top: section - 60,
+        behavior: 'smooth'
+      });
+    }
   };
 
   // TODO : 각 컴포넌트 완료 후 테스트 필요
@@ -66,14 +68,14 @@ const SideBar = () => {
   return (
     <React.Fragment>
       <aside>
-        <div className='fixed z-49 top-14 inset-0 w-60 min-h-screen p-4 bg-white'>
-          <ul className='grid gap-y-6 text-gray-300 text-body3 mb-10 cursor-pointer'>
+        <div className='z-49 fixed inset-0 top-14 min-h-screen w-60 bg-white p-4'>
+          <ul className='mb-10 grid cursor-pointer gap-y-6 text-body3 text-gray-300'>
             {menuItems.map((menuItem, index) => (
               <li
                 key={menuItem.id}
                 className={`hover:text-yellow-400 ${
                   selectedMenu === index
-                    ? 'text-yellow-400 text-body3-bold'
+                    ? 'text-body3-bold text-yellow-400'
                     : ''
                 }`}
                 onClick={() => handleMenuClick(index)}
