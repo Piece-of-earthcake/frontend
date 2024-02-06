@@ -39,15 +39,12 @@ const EarthquakeNews = () => {
     }
   ];
 
-  // 기사 링크값이 추가된 배열 출력
-  console.log(contents);
-
   return (
     <SectionBoard title={title}>
-      <ul className='flex flex-col gap-2 text-black'>
+      <div className='flex flex-col gap-2 text-black'>
         {contents.map(content => (
-          <>
-            <li className='truncate' key={content.id}>
+          <ul key={content.id}>
+            <li className='truncate'>
               <a
                 className='hover:opacity-60'
                 href={content.link}
@@ -58,9 +55,9 @@ const EarthquakeNews = () => {
               </a>
             </li>
             <hr />
-          </>
+          </ul>
         ))}
-      </ul>
+      </div>
     </SectionBoard>
   );
 };
