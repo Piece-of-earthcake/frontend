@@ -1,10 +1,15 @@
+import Chart from '@/components/Ui/Chart';
+import { REGION_RANKING_CHART_OPTION } from '@/components/Ui/Chart/options';
+import SectionBoard from '@/components/Ui/SectionBoard';
+
 const EarthquakeRegionRanking = () => {
+  const title = '2023 지진 빈도수 Top 5';
   return (
-    <>
-      <div className='bg-gray-500 p-8 rounded'>
-        <h1>EarthquakeRegionRanking</h1>
+    <SectionBoard title={title}>
+      <div className='mx-auto h-[400px] w-full'>
+        <Chart option={REGION_RANKING_CHART_OPTION} />
       </div>
-    </>
+    </SectionBoard>
   );
 };
 

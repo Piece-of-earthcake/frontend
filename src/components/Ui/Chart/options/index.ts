@@ -155,3 +155,41 @@ export const SCALE_CHART_OPTIONS: echarts.EChartsOption = {
     }
   ]
 };
+
+export const REGION_RANKING_CHART_OPTION: echarts.EChartsOption = {
+  legend: {
+    orient: 'vertical',
+    left: 'left'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      dataView: { show: true, readOnly: false },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  series: [
+    {
+      name: '2023 지진 빈도수 Top 5',
+      type: 'pie',
+      radius: [40, 150],
+      center: ['50%', '50%'],
+      roseType: 'radius',
+      itemStyle: {
+        borderRadius: 8
+      },
+      data: [
+        { value: 40, name: '제주도' },
+        { value: 38, name: '포항' },
+        { value: 32, name: '울산' },
+        { value: 30, name: '울진' },
+        { value: 28, name: '인천' }
+      ]
+    }
+  ]
+};
