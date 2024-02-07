@@ -5,19 +5,21 @@ import { useEffect } from 'react';
 
 import Loading from '@/components/Ui/Loading';
 
+type MapViewProps = {
+  map: google.maps.Map | undefined;
+  sideBarOpen: boolean;
+  findLocationLoading: boolean;
+  setMap: (x: google.maps.Map) => void;
+  handleFindLocation: (map: google.maps.Map) => void;
+};
+
 const MapView = ({
   map,
   sideBarOpen,
   findLocationLoading,
   setMap,
   handleFindLocation
-}: {
-  map: google.maps.Map | undefined;
-  sideBarOpen: boolean;
-  findLocationLoading: boolean;
-  setMap: (x: google.maps.Map) => void;
-  handleFindLocation: (map: google.maps.Map) => void;
-}) => {
+}: MapViewProps) => {
   useEffect(() => {
     const initMap = () => {
       const map = new window.google.maps.Map(
@@ -29,12 +31,11 @@ const MapView = ({
           zoomControl: true
         }
       );
+
       setMap(map);
     };
 
-    if (typeof window.google !== 'undefined') {
-      initMap();
-    }
+    initMap();
   }, []);
 
   return (
@@ -42,16 +43,14 @@ const MapView = ({
       <div
         className={clsx(
           sideBarOpen
-            ? 'animate-mapClose w-[calc(100%-400px)]'
-            : 'animate-mapOpen w-full',
+            ? 'w-[calc(100%-400px)] animate-mapClose'
+            : 'w-full animate-mapOpen',
           'relative'
         )}
       >
         {/* TODO : 버튼 애니메이션 적용 안돼도록수정필요 */}
         <button
-          className={
-            'absolute left-1/2 top-9 z-10 -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-yellow-400 px-6 py-2 text-body2-bold text-white shadow-lg'
-          }
+          className='absolute left-1/2 top-9 z-10 -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-yellow-400 px-6 py-2 text-body2-bold text-white shadow-lg'
           onClick={() => handleFindLocation(map as google.maps.Map)}
         >
           {findLocationLoading ? (

@@ -2,19 +2,21 @@
 
 import { memo } from 'react';
 
+type ShelterListItemProps = {
+  name: string;
+  lat: number;
+  lng: number;
+  capacity: number;
+  handleMapClick: (x: { lat: number; lng: number }) => void;
+};
+
 const ShelterListItem = ({
   name,
   lat,
   lng,
   capacity,
   handleMapClick
-}: {
-  name: string;
-  lat: number;
-  lng: number;
-  capacity: number;
-  handleMapClick: (x: { lat: number; lng: number }) => void;
-}) => {
+}: ShelterListItemProps) => {
   return (
     <div
       className='text-block min-w-80 cursor-pointer border-t border-solid border-gray-200 px-4 py-4 hover:bg-gray-50'

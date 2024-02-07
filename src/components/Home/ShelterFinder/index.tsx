@@ -1,12 +1,12 @@
 'use client';
 
 import Close from '@public/icons/close.svg';
-import Empty from '@public/icons/empty.svg';
 import MenuIcon from '@public/icons/menu_icon.svg';
 import Search from '@public/icons/search.svg';
 import clsx from 'clsx';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
+import Empty from '@/components/Ui/Empty';
 import SectionBoard from '@/components/Ui/SectionBoard';
 
 import MapView from './MapView';
@@ -287,14 +287,11 @@ const ShelterFinder = () => {
                     );
                   })}
                 {!shelterData && (
-                  <div className='mt-36 flex flex-col items-center justify-center gap-2 pr-10'>
-                    <div className='h-16 w-16 text-yellow-400 opacity-40'>
-                      <Empty />
-                    </div>
-                    <div className='body2-bold text-yellow-400 opacity-60'>
-                      데이터가 없습니다.
-                    </div>
-                  </div>
+                  <Empty
+                    iconStyle='h-16 w-16 text-yellow-400 opacity-40'
+                    textStyle='body2-bold text-yellow-400 opacity-60'
+                    emptyText='데이터가 없습니다.'
+                  />
                 )}
               </div>
             </div>
