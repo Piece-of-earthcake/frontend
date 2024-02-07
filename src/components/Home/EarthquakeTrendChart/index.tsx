@@ -4,14 +4,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import Chart from '@/components/Ui/Chart';
-import { SCALE_CHART_OPTIONS } from '@/components/Ui/Chart/options';
 import SectionBoard from '@/components/Ui/SectionBoard';
 import Select from '@/components/Ui/Select';
-
-import { SELECT_FILTER } from './constants/index';
+import { ChartOptions } from '@/constants/index';
 
 const EarthquakeTrendChart = () => {
-  const [selected, setSelected] = useState(SELECT_FILTER[0].label);
+  const [selected, setSelected] = useState(ChartOptions.SELECT_FILTER[0].label);
 
   return (
     <SectionBoard>
@@ -19,7 +17,7 @@ const EarthquakeTrendChart = () => {
         <div className='flex justify-between text-title'>
           <p>한국 지진 발생 추이</p>
           <Select
-            options={SELECT_FILTER}
+            options={ChartOptions.SELECT_FILTER}
             setSelected={setSelected}
             selected={selected}
           />
@@ -68,7 +66,7 @@ const EarthquakeTrendChart = () => {
         </div>
 
         <div className='mt-10 h-[600px] w-full'>
-          <Chart option={SCALE_CHART_OPTIONS} />
+          <Chart option={ChartOptions.SCALE_CHART_OPTIONS} />
         </div>
       </div>
     </SectionBoard>

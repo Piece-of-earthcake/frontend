@@ -1,6 +1,19 @@
 import * as echarts from 'echarts';
 
-import { CHART_COLORS } from '@/app/constants/chart';
+export const SELECT_FILTER = [
+  { value: '1', label: '1년' },
+  { value: '3', label: '3년' },
+  { value: '5', label: '5년' },
+  { value: '10', label: '10년' }
+];
+
+export const CHART_COLORS = {
+  chart1: '#80FFA5',
+  chart2: '#00DDFF',
+  chart3: '#37A2FF',
+  chart4: '#FF0087',
+  chart5: '#FFBF00'
+};
 
 export const SCALE_CHART_OPTIONS: echarts.EChartsOption = {
   color: [
