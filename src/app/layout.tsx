@@ -5,13 +5,14 @@ import { Inter } from 'next/font/google';
 
 import Header from '@/components/Layouts/Header';
 import SideBar from '@/components/Layouts/SideBar';
+import { DEFAULT_SEO } from '@/constants/seo';
 import ReactQueryProviders from '@/utils/react-query-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'earthcake',
-  description: '국내/외 지진관련 정보 제공'
+  title: DEFAULT_SEO.site_name,
+  description: DEFAULT_SEO.description
 };
 
 export default function RootLayout({
