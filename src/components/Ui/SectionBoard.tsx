@@ -3,11 +3,12 @@ import { ReactNode } from 'react';
 interface SectionBoardProps {
   children: ReactNode;
   title?: string;
+  id?: string;
 }
 
-const SectionBoard = ({ children, title }: SectionBoardProps) => {
+const SectionBoard = ({ children, title, id }: SectionBoardProps) => {
   return (
-    <div className='rounded-sm bg-white p-4'>
+    <div id={id} className='rounded-sm bg-white p-4'>
       {title && <div className='mb-4 text-title text-black'>{title}</div>}
       {children}
     </div>
