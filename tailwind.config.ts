@@ -17,7 +17,8 @@ const config: Config = {
         'brown-100': '#754F44',
         'gray-100': '#E0E3DA',
         'gray-200': '#383A3F',
-        'gray-300': '#1F2124'
+        'gray-300': '#1F2124',
+        'gray-400': '#8B8B8B'
       },
       height: {
         22: '88px'

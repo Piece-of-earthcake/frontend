@@ -20,23 +20,23 @@ const MapView = ({
   setMap,
   handleFindLocation
 }: MapViewProps) => {
-  useEffect(() => {
-    const initMap = () => {
-      const map = new window.google.maps.Map(
-        document.getElementById('map') as HTMLElement,
-        {
-          zoom: 14,
-          disableDefaultUI: true,
-          center: { lat: 37.5546788, lng: 126.97060691 },
-          zoomControl: true
-        }
-      );
+  // useEffect(() => {
+  //   const initMap = () => {
+  //     const map = new window.google.maps.Map(
+  //       document.getElementById('map') as HTMLElement,
+  //       {
+  //         zoom: 14,
+  //         disableDefaultUI: true,
+  //         center: { lat: 37.5546788, lng: 126.97060691 },
+  //         zoomControl: true
+  //       }
+  //     );
 
-      setMap(map);
-    };
+  //     setMap(map);
+  //   };
 
-    initMap();
-  }, []);
+  //   initMap();
+  // }, []);
 
   return (
     <div className='flex justify-end'>
