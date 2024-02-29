@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.19.2",
+    "@react-google-maps/api": "^2.19.3",
     "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.0",
     "echarts": "^5.4.3",

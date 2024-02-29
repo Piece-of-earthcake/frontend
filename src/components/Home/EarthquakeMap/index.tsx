@@ -1,13 +1,14 @@
 import SectionBoard from '@/components/Ui/SectionBoard';
 
 import AlertBox from './AlertBox';
+import MapView from './MapView';
+
 const EarthquakeMap = () => {
   return (
-    <>
-      <SectionBoard>
-        <AlertBox />
-      </SectionBoard>
-    </>
+    <SectionBoard>
+      <MapView />
+      <AlertBox />
+    </SectionBoard>
   );
 };
 
