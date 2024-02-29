@@ -71,7 +71,7 @@ const MapView = () => {
         center: seoul
       }
     );
-    const bounds = new google.maps.LatLngBounds();
+
     malls.forEach(({ label, lat, lng, content }) => {
       const marker = new google.maps.Marker({
         position: { lat, lng },
