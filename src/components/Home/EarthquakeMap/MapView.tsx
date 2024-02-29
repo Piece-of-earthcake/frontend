@@ -78,12 +78,7 @@ const MapView = () => {
         label,
         map
       });
-      marker.addListener('click', () =>
-        infoWindow.open({
-          anchor: marker,
-          map
-        })
-      );
+
       const infoWindow = new google.maps.InfoWindow({
         content: content,
         ariaLabel: 'seoul'
