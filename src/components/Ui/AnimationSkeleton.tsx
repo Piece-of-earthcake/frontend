@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import type { FC } from 'react';
 
 export interface AnimationSkeletonProps {
   borderRadius?: string;
@@ -7,11 +6,11 @@ export interface AnimationSkeletonProps {
   width?: string;
 }
 
-const AnimationSkeleton: FC<AnimationSkeletonProps> = ({
+const AnimationSkeleton = ({
   borderRadius,
   height,
   width
-}) => {
+}: AnimationSkeletonProps) => {
   return (
     <div
       className={clsx(
