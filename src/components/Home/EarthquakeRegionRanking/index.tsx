@@ -1,3 +1,4 @@
+'use client';
 import Chart from '@/components/Ui/Chart';
 import SectionBoard from '@/components/Ui/SectionBoard';
 import { ChartOptions } from '@/constants/index';
