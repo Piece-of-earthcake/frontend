@@ -1,15 +1,17 @@
 'use client';
 
+import { useJsApiLoader } from '@react-google-maps/api';
 import clsx from 'clsx';
-import { useEffect } from 'react';
 
+import AnimationSkeleton from '@/components/Ui/AnimationSkeleton';
 import Loading from '@/components/Ui/Loading';
+
+import GoogleMap from '../GoogleMap';
 
 type MapViewProps = {
   map: google.maps.Map | undefined;
   sideBarOpen: boolean;
   findLocationLoading: boolean;
-  setMap: (x: google.maps.Map) => void;
   handleFindLocation: (map: google.maps.Map) => void;
 };
 
@@ -17,26 +19,13 @@ const MapView = ({
   map,
   sideBarOpen,
   findLocationLoading,
-  setMap,
   handleFindLocation
 }: MapViewProps) => {
-  // useEffect(() => {
-  //   const initMap = () => {
-  //     const map = new window.google.maps.Map(
-  //       document.getElementById('map') as HTMLElement,
-  //       {
-  //         zoom: 14,
-  //         disableDefaultUI: true,
-  //         center: { lat: 37.5546788, lng: 126.97060691 },
-  //         zoomControl: true
-  //       }
-  //     );
-
-  //     setMap(map);
-  //   };
-
-  //   initMap();
-  // }, []);
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY || '';
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey
+  });
 
   return (
     <div className='flex justify-end'>
@@ -61,15 +50,21 @@ const MapView = ({
             '내 주변 대피소 찾기'
           )}
         </button>
-        <div id='map' className='h-[600px] w-full' />
+        {isLoaded ? (
+          <GoogleMap
+            mapStyle='h-[600px] w-full'
+            mapOption={{
+              zoom: 14,
+              disableDefaultUI: true,
+              center: { lat: 37.5546788, lng: 126.97060691 },
+              zoomControl: true
+            }}
+            mapId='shelterFinderMap'
+          />
+        ) : (
+          <AnimationSkeleton height='600px' width='100%' />
+        )}
       </div>
-
-      <script
-        async
-        defer
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}&loading=async`}
-        type='text/javascript'
-      />
     </div>
   );
 };

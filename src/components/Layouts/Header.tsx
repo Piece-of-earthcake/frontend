@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import FindShelterButton from '../FindShelterButton';
+import FindShelterButton from '../Home/ShelterFinder/FindShelterButton';
 
 const Header = () => {
   return (

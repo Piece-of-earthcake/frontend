@@ -1,8 +1,15 @@
 'use client';
 
 import { useJsApiLoader } from '@react-google-maps/api';
-import Script from 'next/script';
 import { useEffect } from 'react';
+
+import AnimationSkeleton from '@/components/Ui/AnimationSkeleton';
+import useGoogleMapStore from '@/hooks/store/useGoogleMapStore';
+
+import GoogleMap from '../GoogleMap';
+
+const seoul = { lat: 37.5665, lng: 126.978 };
+
 const MapView = () => {
   const malls = [
     {
@@ -62,16 +69,9 @@ const MapView = () => {
     googleMapsApiKey
   });
 
-  const initMap = () => {
-    const seoul = { lat: 37.5665, lng: 126.978 };
-    const map = new google.maps.Map(
-      document.getElementById('earthQuakeMap') as HTMLElement,
-      {
-        zoom: 12,
-        center: seoul
-      }
-    );
+  const { map } = useGoogleMapStore();
 
+  const initMap = () => {
     malls.forEach(({ label, lat, lng, content }) => {
       const marker = new google.maps.Marker({
         position: { lat, lng },
@@ -92,6 +92,7 @@ const MapView = () => {
       });
     });
   };
+
   useEffect(() => {
     if (!isLoaded) return;
     initMap();
@@ -99,10 +100,18 @@ const MapView = () => {
 
   return (
     <>
-      <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}&loading=async`}
-      />
-      <div id='earthQuakeMap' className='mb-4 h-[400px] w-full' />
+      {isLoaded ? (
+        <GoogleMap
+          mapStyle='mb-4 h-[400px] w-full'
+          mapOption={{
+            zoom: 12,
+            center: seoul
+          }}
+          mapId='earthQuakeMap'
+        />
+      ) : (
+        <AnimationSkeleton height='400px' width='100%' />
+      )}
     </>
   );
 };
