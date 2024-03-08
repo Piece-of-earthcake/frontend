@@ -72,7 +72,15 @@ const config: Config = {
           'Segoe UI Emoji'
         ]
       },
+      backgroundSize: {
+        200: '200% 100%'
+      },
+      backgroundImage: {
+        gradient:
+          'linear-gradient(270deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.25))'
+      },
       animation: {
+        skeletonLoading: '2s ease-in-out infinite skeletonLoading',
         slideInRight: '500ms ease slideInRight',
         slideOutRight: '500ms ease slideOutRight',
         mapSideBarOpen: '300ms ease-in-out mapSideBarOpen',
@@ -82,6 +90,14 @@ const config: Config = {
       },
 
       keyframes: {
+        skeletonLoading: {
+          '0%': {
+            'background-position': '0% 0'
+          },
+          '100%': {
+            'background-position': '-200% 0'
+          }
+        },
         slideInRight: {
           from: {
             transform: 'translateX(100%)',

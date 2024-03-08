@@ -8,6 +8,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import Empty from '@/components/Ui/Empty';
 import SectionBoard from '@/components/Ui/SectionBoard';
+import useGoogleMapStore from '@/hooks/store/useGoogleMapStore';
 
 import MapView from './MapView';
 import ShelterListItem from './ShelterListItem';
@@ -35,7 +36,6 @@ const temporaryData = {
 };
 
 const ShelterFinder = () => {
-  const [map, setMap] = useState<google.maps.Map>();
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [animation, setAnimation] = useState('');
   const [findLocationLoading, setFindLocationLoading] = useState(false);
@@ -43,41 +43,43 @@ const ShelterFinder = () => {
   const [searchInputText, setSearchInputText] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
+  const { map } = useGoogleMapStore();
+
   useEffect(() => {
     if (!searchValue) return;
     //TODO : https 환경에서 요청해야함으로, https 환경설정후 개발 테스트진행
 
-    // const fetchData = async () => {
-    //   try {
-    //     const base_url =
-    //       'https://maps.googleapis.com/maps/api/place/textsearch/json';
-    //     const params = new URLSearchParams({
-    //       query: searchValue,
-    //       key: `${process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}`
-    //     });
-
-    //     const url = `${base_url}?${params.toString()}`;
-
-    //     const response = await fetch(url);
-    //     const data = await response.json();
-
-    //     if (data.results && data.results.length > 0) {
-    //       const placeInfo = data.results[0];
-
-    //       const pos = {
-    //         lat: placeInfo.geometry.location.lat,
-    //         lng: placeInfo.geometry.location.lng
-    //       };
-    //       searchShelter(pos);
-    //     } else {
-    //       console.log('장소를 찾을 수 없습니다.');
-    //     }
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // };
+    const fetchData = async () => {
+      try {
+        // const base_url =
+        //   'https://maps.googleapis.com/maps/api/place/textsearch/json';
+        // const params = new URLSearchParams({
+        //   query: searchValue,
+        //   key: `${process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}`
+        // });
+        // const url = `${base_url}?${params.toString()}`;
+        // const response = await fetch(url);
+        // const data = await response.json();
+        // if (data.results && data.results.length > 0) {
+        //   const placeInfo = data.results[0];
+        //   const pos = {
+        //     lat: placeInfo.geometry.location.lat,
+        //     lng: placeInfo.geometry.location.lng
+        //   };
+        //   searchShelter(pos);
+        // } else {
+        //   console.log('장소를 찾을 수 없습니다.');
+        // }
+        // const request = {
+        //   query: searchValue,
+        //   fields: ['name', 'geometry', 'location']
+        // };
+      } catch (error) {
+        console.error(error);
+      }
+    };
     searchShelter({ lat: 37.5546788, lng: 126.97060691 });
-    // fetchData();
+    fetchData();
   }, [searchInputText]);
 
   const handleFindLocation = (map: google.maps.Map) => {
@@ -302,7 +304,6 @@ const ShelterFinder = () => {
           map={map}
           sideBarOpen={sideBarOpen}
           findLocationLoading={findLocationLoading}
-          setMap={setMap}
           handleFindLocation={handleFindLocation}
         />
       </div>

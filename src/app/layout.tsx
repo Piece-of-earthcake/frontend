@@ -2,6 +2,8 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Head from 'next/head';
+import Script from 'next/script';
 
 import Header from '@/components/Layouts/Header';
 import SideBar from '@/components/Layouts/SideBar';
@@ -22,6 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <Head>
+        <Script
+          async
+          defer
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}&loading=async`}
+          type='text/javascript'
+        />
+        <link rel='preload' href='url_to_script' as='script' />
+      </Head>
       <body className={inter.className}>
         <ReactQueryProviders>
           <Header />
